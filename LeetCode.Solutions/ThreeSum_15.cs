@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LeetCode.Solutions
 {
@@ -43,28 +43,25 @@ namespace LeetCode.Solutions
 
             var triplets = new HashSet<Triplet>();
 
-            bool ZeroSum(int x, int y, int z) => x + y + z == 0;
-
-            for (var i = 0; i < nums.Length; ++i)
+            for (var i = 0; i < nums.Length - 1; ++i)
             {
                 var a = nums[i];
+                var sums = new HashSet<int>();
                 for (var j = i + 1; j < nums.Length; ++j)
                 {
                     var b = nums[j];
-                    for (var k = j + 1; k < nums.Length; ++k)
+                    var x = (a + b) * -1;
+                    if (sums.Contains(x))
                     {
-                        var c = nums[k];
-
-                        if (!ZeroSum(a, b, c))
-                        {
-                            continue;
-                        }
-
-                        var triplet = new Triplet(a, b, c);
+                        var triplet = new Triplet(x, a, b);
                         if (!triplets.Contains(triplet))
                         {
                             triplets.Add(triplet);
                         }
+                    }
+                    else
+                    {
+                        sums.Add(b);
                     }
                 }
             }
