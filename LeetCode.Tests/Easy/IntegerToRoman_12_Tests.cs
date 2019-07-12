@@ -1,8 +1,7 @@
-﻿using System;
+﻿using LeetCode.Solutions.Easy;
 using Xunit;
-using static LeetCode.Solutions.Easy.IntegerToRoman_12;
 
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Easy
 {
     public class IntegerToRoman_12_Tests
     {
@@ -18,7 +17,7 @@ namespace LeetCode.Tests
         [InlineData(3999, "MMMCMXCIX")]
         public void IntToRomanTests(int num, string expected)
         {
-            var actual = IntToRoman(num);
+            var actual = IntegerToRoman_12.IntToRoman(num);
             Assert.Equal(expected, actual);
         }
     }

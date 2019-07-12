@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using LeetCode.Solutions.Easy;
 using Xunit;
 
-using static LeetCode.Solutions.Easy.MergeTwoSortedLists_21;
-
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Easy
 {
     public class MergeTwoSortedLists_21_Tests
     {
@@ -19,12 +17,12 @@ namespace LeetCode.Tests
             var r = InlineDataStringToList(right);
             var exp = InlineDataStringToList(expected);
 
-            var actual = MergeTwoLists(l, r);
+            var actual = MergeTwoSortedLists_21.MergeTwoLists(l, r);
             AssertListsEqual(exp, actual);
         }
 
 
-        private static void AssertListsEqual(ListNode expected, ListNode actual)
+        private static void AssertListsEqual(MergeTwoSortedLists_21.ListNode expected, MergeTwoSortedLists_21.ListNode actual)
         {
             var l = expected;
             var r = actual;
@@ -38,16 +36,16 @@ namespace LeetCode.Tests
             Assert.Null(r);
         }
 
-        private static ListNode InlineDataStringToList(string str)
+        private static MergeTwoSortedLists_21.ListNode InlineDataStringToList(string str)
         {
             if (string.IsNullOrEmpty(str))
                 return null;
 
-            var head = new ListNode(-1);
+            var head = new MergeTwoSortedLists_21.ListNode(-1);
             var n = head;
             foreach (var i in str.Split(",").Select(int.Parse))
             {
-                n.Next = new ListNode(i);
+                n.Next = new MergeTwoSortedLists_21.ListNode(i);
                 n = n.Next;
             }
             return n.Next;

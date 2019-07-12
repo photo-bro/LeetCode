@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -14,11 +14,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LeetCode.Solutions\LeetCode.Solutions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Easy\" />
-    <Folder Include="Hard\" />
-    <Folder Include="Medium\" />
   </ItemGroup>
 </Project>

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using LeetCode.Solutions.Hard;
 using Xunit;
 
-using static LeetCode.Solutions.Hard.MedianOfTwoSortedArrays_4;
-
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Hard
 {
     public class MedianOfTwoSortedArrays_4_Tests
     {
@@ -27,14 +25,14 @@ namespace LeetCode.Tests
         public void MedianOfTwoSortedArrays_Tests(string nums1, string nums2, double expected)
         {
             var n1 = nums1.Length != 0
-                ? nums1.Split(",").Select(s => int.Parse(s)).ToArray()
+                ? nums1.Split(",").Select(int.Parse).ToArray()
                 : new int[0]
 ;
             var n2 = nums2.Length != 0
-                ? nums2.Split(",").Select(s => int.Parse(s)).ToArray()
+                ? nums2.Split(",").Select(int.Parse).ToArray()
                 : new int[0]
 ;
-            var actual = FindMedianSortedArrays(n1, n2);
+            var actual = MedianOfTwoSortedArrays_4.FindMedianSortedArrays(n1, n2);
 
             Assert.Equal(expected, actual);
         }

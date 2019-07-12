@@ -1,9 +1,7 @@
-﻿using System;
+﻿using LeetCode.Solutions.Medium;
 using Xunit;
 
-using static LeetCode.Solutions.Medium.StringToInteger_8;
-
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Medium
 {
     public class StringToInteger_8_Tests
     {
@@ -28,7 +26,7 @@ namespace LeetCode.Tests
         [InlineData("20000000000000", 2147483647)]
         public void atoiTests(string s, int expected)
         {
-            var actual = atoi(s);
+            var actual = StringToInteger_8.atoi(s);
 
             Assert.Equal(expected, actual);
         }

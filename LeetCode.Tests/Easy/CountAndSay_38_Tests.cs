@@ -1,7 +1,7 @@
-﻿using Xunit;
-using static LeetCode.Solutions.Easy.CountAndSay_38;
+﻿using LeetCode.Solutions.Easy;
+using Xunit;
 
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Easy
 {
     public class CountAndSay_38_Tests
     {
@@ -19,7 +19,7 @@ namespace LeetCode.Tests
         [InlineData(31, null)]
         public void CountAndSayTests(int n, string expected)
         {
-            var actual = CountAndSay(n);
+            var actual = CountAndSay_38.CountAndSay(n);
 
             Assert.Equal(expected, actual);
         }

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using LeetCode.Solutions.Easy;
 using Xunit;
-using static LeetCode.Solutions.Easy.RomanToInteger_13;
 
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Easy
 {
     public class RomanToInteger_13_Tests
     {
@@ -28,7 +27,7 @@ namespace LeetCode.Tests
         [InlineData("MMMCMXCIX", 3999)]
         public void RomanToInt_Tests(string roman, int expected)
         {
-            var actual = RomanToInt(roman);
+            var actual = RomanToInteger_13.RomanToInt(roman);
             Assert.Equal(expected, actual);
         }
     }

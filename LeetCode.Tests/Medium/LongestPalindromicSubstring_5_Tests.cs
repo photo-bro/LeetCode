@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Timers;
+using LeetCode.Solutions.Medium;
 using Xunit;
 
-using static LeetCode.Solutions.Medium.LongestPalindromicSubstring_5;
-
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Medium
 {
     public class LongestPalindromicSubstring_5_Tests
     {
@@ -24,7 +23,7 @@ namespace LeetCode.Tests
         public void LongestPalindromeTests(string str, string answers)
         {
             var expected = answers.Split(",");
-            var actual = LongestPalindrome(str);
+            var actual = LongestPalindromicSubstring_5.LongestPalindrome(str);
 
             if (expected.Length > 1)
             {
@@ -49,7 +48,7 @@ namespace LeetCode.Tests
             try
             {
                 timer.Start();
-                var actual = LongestPalindrome(data);
+                var actual = LongestPalindromicSubstring_5.LongestPalindrome(data);
                 timer.Stop();
             }
             finally

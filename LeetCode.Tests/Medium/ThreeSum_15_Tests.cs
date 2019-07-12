@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LeetCode.Solutions.Medium;
 using Xunit;
-using static LeetCode.Solutions.Medium.ThreeSum_15;
 
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Medium
 {
     public class ThreeSum_15_Tests
     {
@@ -33,7 +33,7 @@ namespace LeetCode.Tests
                               .ToList();
             }
 
-            var actual = ThreeSum(n);
+            var actual = ThreeSum_15.ThreeSum(n);
 
             Assert.NotNull(actual);
             if (exp.Count != 0)
@@ -164,7 +164,7 @@ namespace LeetCode.Tests
             var actualTask = Task.Run(() =>
             {
                 sw.Start();
-                actual = ThreeSum(n);
+                actual = ThreeSum_15.ThreeSum(n);
                 sw.Stop();
             });
             var delayTask = Task.Delay(maxMilliseconds * 100, new CancellationToken());

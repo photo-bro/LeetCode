@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using LeetCode.Solutions.Easy;
 using Xunit;
-using static LeetCode.Solutions.Easy.SearchInsertPosition_35;
 
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Easy
 {
     public class SearchInsertPosition_35_Tests
     {
@@ -17,7 +16,7 @@ namespace LeetCode.Tests
         {
             var nums = arr.Split(",").Select(int.Parse).ToArray();
 
-            var actual = SearchInsert(nums, target);
+            var actual = SearchInsertPosition_35.SearchInsert(nums, target);
 
             Assert.Equal(expected, actual);
         }

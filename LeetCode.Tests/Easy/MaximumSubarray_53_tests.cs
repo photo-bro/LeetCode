@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using LeetCode.Solutions.Easy;
 using Xunit;
-using static LeetCode.Solutions.Easy.MaximumSubarray_53;
 
-namespace LeetCode.Tests
+namespace LeetCode.Tests.Easy
 {
     public class MaximumSubarray_53_tests
     {
@@ -14,7 +13,7 @@ namespace LeetCode.Tests
         public void MaxSubArray_Tests(string nums, int expected)
         {
             var n = nums.Split(",").Select(int.Parse).ToArray();
-            var actual = MaxSubArray(n);
+            var actual = MaximumSubarray_53.MaxSubArray(n);
             Assert.Equal(expected, actual);
         }
     }
