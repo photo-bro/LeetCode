@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions.Easy
 {
     public static class RemoveElement_27
     {

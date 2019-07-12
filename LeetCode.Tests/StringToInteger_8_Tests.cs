@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-using static LeetCode.Solutions.StringToInteger_8;
+using static LeetCode.Solutions.Medium.StringToInteger_8;
 
 namespace LeetCode.Tests
 {

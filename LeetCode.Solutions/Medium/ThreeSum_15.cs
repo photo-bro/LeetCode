@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions.Medium
 {
 
     //////  T h r e e   S u m - M E D I U M  //////

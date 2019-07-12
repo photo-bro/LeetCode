@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-using static LeetCode.Solutions.MedianOfTwoSortedArrays_4;
+using static LeetCode.Solutions.Hard.MedianOfTwoSortedArrays_4;
 
 namespace LeetCode.Tests
 {

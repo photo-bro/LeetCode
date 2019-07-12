@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using static LeetCode.Solutions.CountAndSay_38;
+using static LeetCode.Solutions.Easy.CountAndSay_38;
 
 namespace LeetCode.Tests
 {

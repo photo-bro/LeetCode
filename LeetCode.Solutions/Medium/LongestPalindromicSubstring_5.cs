@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions.Medium
 {
     ////// L o n g e s t   P a l i n d r o m i c   S u b s t r i n g - M E D I U M //////
     ///

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions.Easy
 {
     ////// C o u n t   a n d   S a y - E A S Y //////
     ///

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-namespace LeetCode.Solutions
+﻿namespace LeetCode.Solutions.Easy
 {
     ////// M a x i m u m   S u b a r r a y  - E A S Y //////
     ///

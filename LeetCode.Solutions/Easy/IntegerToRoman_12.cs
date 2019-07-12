@@ -1,5 +1,4 @@
-﻿using System;
-namespace LeetCode.Solutions
+﻿namespace LeetCode.Solutions.Easy
 {
     ////// I n t e g e r   t o   R o m a n - E A S Y  //////
     ///

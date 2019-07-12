@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LeetCode.Solutions
+﻿namespace LeetCode.Solutions.Hard
 {
     ////// M e d i a n   o f   T w o   S o r t e d   A r r a y s  -  H A R D ////////
     ///                                                                           ///

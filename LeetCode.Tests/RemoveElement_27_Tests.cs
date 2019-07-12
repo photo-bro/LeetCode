@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using Xunit;
-using static LeetCode.Solutions.RemoveElement_27;
+using static LeetCode.Solutions.Easy.RemoveElement_27;
 
 namespace LeetCode.Tests
 {

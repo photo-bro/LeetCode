@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-using static LeetCode.Solutions.MergeTwoSortedLists_21;
+using static LeetCode.Solutions.Easy.MergeTwoSortedLists_21;
 
 namespace LeetCode.Tests
 {

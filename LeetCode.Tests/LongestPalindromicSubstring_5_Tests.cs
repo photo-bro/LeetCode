@@ -3,7 +3,7 @@ using System.Linq;
 using System.Timers;
 using Xunit;
 
-using static LeetCode.Solutions.LongestPalindromicSubstring_5;
+using static LeetCode.Solutions.Medium.LongestPalindromicSubstring_5;
 
 namespace LeetCode.Tests
 {

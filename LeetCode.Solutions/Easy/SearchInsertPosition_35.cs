@@ -1,5 +1,6 @@
 ﻿using System;
-namespace LeetCode.Solutions
+
+namespace LeetCode.Solutions.Easy
 {
     ////// S e a r c h   I n s e r t   P o s i t i o n  -  E A S Y  ////// 
     ///

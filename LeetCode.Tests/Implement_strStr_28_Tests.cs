@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using static LeetCode.Solutions.Implement_strStr_28;
+using static LeetCode.Solutions.Easy.Implement_StrStr_28;
 namespace LeetCode.Tests
 {
     public class Implement_strStr_28_Tests

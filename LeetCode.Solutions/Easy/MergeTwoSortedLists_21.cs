@@ -1,5 +1,4 @@
-﻿using System;
-namespace LeetCode.Solutions
+﻿namespace LeetCode.Solutions.Easy
 {
     ////// M e r g e   T w o   S o r t e d   L i s t s  -  E A S Y /////
     ///

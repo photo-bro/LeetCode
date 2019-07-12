@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Xunit;
-using static LeetCode.Solutions.SearchInsertPosition_35;
+using static LeetCode.Solutions.Easy.SearchInsertPosition_35;
 
 namespace LeetCode.Tests
 {

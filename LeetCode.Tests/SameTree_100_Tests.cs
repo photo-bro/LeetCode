@@ -1,7 +1,7 @@
 ﻿using System;
 using LeetCode.Solutions;
 using Xunit;
-using static LeetCode.Solutions.SameTree_100;
+using static LeetCode.Solutions.Easy.SameTree_100;
 
 namespace LeetCode.Tests
 {

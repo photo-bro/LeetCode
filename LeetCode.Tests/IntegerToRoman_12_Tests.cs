@@ -1,6 +1,6 @@
 ﻿using System;
 using Xunit;
-using static LeetCode.Solutions.IntegerToRoman_12;
+using static LeetCode.Solutions.Easy.IntegerToRoman_12;
 
 namespace LeetCode.Tests
 {

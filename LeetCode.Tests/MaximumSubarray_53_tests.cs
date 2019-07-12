@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Xunit;
-using static LeetCode.Solutions.MaximumSubarray_53;
+using static LeetCode.Solutions.Easy.MaximumSubarray_53;
 
 namespace LeetCode.Tests
 {

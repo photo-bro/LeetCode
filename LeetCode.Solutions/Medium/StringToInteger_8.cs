@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace LeetCode.Solutions
+﻿namespace LeetCode.Solutions.Medium
 {
     ////// S t r i n g   t o   I n t e g e r   ( a t o i ) - M E D I U M /////
     ///

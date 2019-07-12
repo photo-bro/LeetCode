@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions.Easy
 {
     ////// R o m a n   t o   I n t e g e r - E A S Y //////
     ///

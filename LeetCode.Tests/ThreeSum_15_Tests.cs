@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using static LeetCode.Solutions.ThreeSum_15;
+using static LeetCode.Solutions.Medium.ThreeSum_15;
 
 namespace LeetCode.Tests
 {
