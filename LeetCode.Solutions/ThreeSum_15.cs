@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,12 +43,28 @@ namespace LeetCode.Solutions
                     : new List<IList<int>>();
             }
 
+            Array.Sort(nums);
+
             var triplets = new HashSet<Triplet>();
+
+            var sums = new HashSet<int>();
 
             for (var i = 0; i < nums.Length - 1; ++i)
             {
                 var a = nums[i];
-                var sums = new HashSet<int>();
+                if (a == nums[i + 1] && nums[i + 1] == nums[nums.Length - 1])
+                {
+                    if (i + 1 < nums.Length - 1 && a * 3 == 0)
+                    {
+                        var triplet = new Triplet(a, a, a);
+                        if (!triplets.Contains(triplet))
+                        {
+                            triplets.Add(triplet);
+                        }
+                    }
+
+                    break;
+                }
                 for (var j = i + 1; j < nums.Length; ++j)
                 {
                     var b = nums[j];
@@ -63,7 +81,9 @@ namespace LeetCode.Solutions
                     {
                         sums.Add(b);
                     }
+
                 }
+                sums.Clear();
             }
 
             return triplets.Select(t => new List<int> { t.A, t.B, t.C }).Cast<IList<int>>().ToList();
@@ -77,34 +97,32 @@ namespace LeetCode.Solutions
                 B = b;
                 C = c;
 
-                Counts = new Dictionary<int, int> { { a, 1 } };
-                if (Counts.ContainsKey(b))
-                    Counts[b] += 1;
+                var counts = new Dictionary<int, int> { { a, 1 } };
+                if (counts.ContainsKey(b))
+                    counts[b] += 1;
                 else
-                    Counts.Add(b, 1);
-                if (Counts.ContainsKey(c))
-                    Counts[c] += 1;
+                    counts.Add(b, 1);
+                if (counts.ContainsKey(c))
+                    counts[c] += 1;
                 else
-                    Counts.Add(c, 1);
+                    counts.Add(c, 1);
+
+                _countsString = counts.OrderBy(kv => kv.Key)
+                                     .Select(kv => $"{kv.Key}{kv.Value}")
+                                     .Aggregate((agg, s) => agg += s);
             }
 
             public int A { get; }
             public int B { get; }
             public int C { get; }
 
-            public readonly IDictionary<int, int> Counts;
+            private readonly string _countsString;
 
             // HashCode shouldn't be used for equality check...
-            public override bool Equals(object o) => GetHashCode() == (o as Triplet? ?? default).GetHashCode();
+            public override bool Equals(object o) =>
+                GetHashCode() == (o as Triplet? ?? default).GetHashCode();
 
-            public override int GetHashCode()
-            {
-                var countStr = Counts
-                               .OrderBy(kv => kv.Key)
-                               .Select(kv => $"{kv.Key}{kv.Value}")
-                               .Aggregate((a, s) => a += s);
-                return countStr.GetHashCode();
-            }
+            public override int GetHashCode() => _countsString.GetHashCode();
         }
     }
 }

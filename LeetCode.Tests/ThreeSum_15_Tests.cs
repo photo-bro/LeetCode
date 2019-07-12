@@ -13,23 +13,43 @@ namespace LeetCode.Tests
         [Theory]
         [InlineData("-1,0,1,2,-1,-4", "-1,0,1;-1,-1,2")]
         [InlineData("3,0,-2,-1,1,2", "3,-2,-1;0,-2,2;0,-1,1")]
+        [InlineData("2,-3,0,-2,-5,-5,-4,1,2,-2,2,0,2,-4", "-4,2,2;-3,1,2;-2,0,2")]
+        [InlineData("0,0,0,0", "0,0,0")]
+        [InlineData("0,0", "")]
         public void ThreeSum_Tests(string nums, string expected)
         {
             var n = nums.Split(",").Select(int.Parse).ToArray();
-            var exp = expected.Split(";")
-                    .Select(s => s.Split(",")
-                    .Select(int.Parse)
-                    .ToList())
-                .ToList();
+            List<List<int>> exp;
+            if (string.IsNullOrWhiteSpace(expected))
+            {
+                exp = new List<List<int>>();
+            }
+            else
+            {
+                exp = expected.Split(";")
+                              .Select(s => s.Split(",")
+                                            .Select(int.Parse)
+                                            .ToList())
+                              .ToList();
+            }
 
             var actual = ThreeSum(n);
 
             Assert.NotNull(actual);
-            Assert.NotEmpty(actual);
+            if (exp.Count != 0)
+            {
+                Assert.NotEmpty(actual);
+            }
+            else
+            {
+                Assert.Empty(actual);
+                return;
+            }
+
             Assert.Equal(exp.Count, actual.Count);
 
             var actualOrdered = actual.Select(t => t.OrderBy(li => li).ToList()).OrderBy(l => $"{l[0]}{l[1]}{l[2]}").ToList();
-            var expOrdered =       exp.Select(t => t.OrderBy(li => li).ToList()).OrderBy(l => $"{l[0]}{l[1]}{l[2]}").ToList();
+            var expOrdered = exp.Select(t => t.OrderBy(li => li).ToList()).OrderBy(l => $"{l[0]}{l[1]}{l[2]}").ToList();
 
             for (var i = 0; i < exp.Count; ++i)
             {
@@ -150,9 +170,9 @@ namespace LeetCode.Tests
             var delayTask = Task.Delay(maxMilliseconds * 100, new CancellationToken());
             var completedTask = await Task.WhenAny(actualTask, delayTask);
 
-            Assert.False(true, $"ms: '{sw.ElapsedMilliseconds}'");
-            //Assert.True(completedTask.Id == actualTask.Id,
-            //            $"Elapsed time (ms): '{sw.ElapsedMilliseconds}'");
+            // Assert.False(true, $"ms: '{sw.ElapsedMilliseconds}'");
+            Assert.True(completedTask.Id == actualTask.Id,
+                        $"Elapsed time (ms): '{sw.ElapsedMilliseconds}'");
             Assert.NotNull(actual);
         }
     }
