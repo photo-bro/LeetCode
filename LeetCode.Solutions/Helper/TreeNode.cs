@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LeetCode.Solutions.Helper
 {
     public class TreeNode : IEquatable<TreeNode>
     {
-        public int val;
+        public readonly int val;
         public TreeNode left;
         public TreeNode right;
         public TreeNode(int x) { val = x; }
