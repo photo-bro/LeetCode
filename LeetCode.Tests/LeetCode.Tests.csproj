@@ -15,4 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LeetCode.Solutions\LeetCode.Solutions.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Helpers.cs" />
+  </ItemGroup>
 </Project>
