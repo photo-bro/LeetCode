@@ -10,6 +10,55 @@ namespace LeetCode.Solutions.Helper
         public TreeNode right;
         public TreeNode(int x) { val = x; }
 
+        public static bool IsSymmetric(TreeNode root)
+        {
+            if (root == null)
+            {
+                return true;
+            }
+
+            InvertTree(root.right);
+
+            return IsSameTree(root.left, root.right);
+        }
+
+        public static void InvertTree(TreeNode head)
+        {
+            if (head == null)
+            {
+                return;
+            }
+
+            var n = head.left;
+            head.left = head.right;
+            head.right = n;
+
+            InvertTree(head.left);
+            InvertTree(head.right);
+        }
+
+        public static bool IsSameTree(TreeNode p, TreeNode q)
+        {
+            if (p == null && q == null)
+            {
+                return true;
+            }
+
+            if (p == null || q == null)
+            {
+                return false;
+            }
+
+            if (p.val != q.val)
+            {
+                return false;
+            }
+
+            var left = IsSameTree(p.left, q.left);
+            var right = IsSameTree(p.right, q.right);
+            return left && right;
+        }
+
         public static TreeNode StringToTree(string s)
         {
             if (string.IsNullOrEmpty(s))
@@ -27,13 +76,30 @@ namespace LeetCode.Solutions.Helper
             return tree;
         }
 
+        public static TreeNode ConstructTree(ReadOnlySpan<int> values)
+        {
+            var nullableNums = values.ToArray().Cast<int?>().ToArray();
+            return ConstructTree(nullableNums);
+        }
+
         public static TreeNode ConstructTree(ReadOnlySpan<int?> values)
         {
-            var n = (int)Math.Log(values.Length + 1, 2);
+            if (values.Length == 0)
+                return null;
+
+            var n = (int)Math.Ceiling(Math.Log(values.Length + 1, 2));
 
             if (n == 1)
             {
                 return values[0].HasValue ? new TreeNode(values[0].Value) : null;
+            }
+
+            // Null pad values0
+            if (values.Length < Math.Pow(2,n) -1 )
+            {
+                var valueCopy = values.ToArray();
+                Array.Resize(ref valueCopy, (int)Math.Pow(2, n) - 1);
+                values = valueCopy.AsSpan();
             }
 
             var groups = new int?[n][];
