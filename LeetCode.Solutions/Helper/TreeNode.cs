@@ -1,14 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LeetCode.Solutions.Helper
 {
-    public class TreeNode
+    public class TreeNode : IEquatable<TreeNode>
     {
         public int val;
         public TreeNode left;
         public TreeNode right;
         public TreeNode(int x) { val = x; }
+
+        public override int GetHashCode() => HashCode.Combine(val, left, right);
+
+        public override string ToString() =>
+            $"Value: '{val}'\t{Environment.NewLine}Left: '{left}'{Environment.NewLine}Right: {right}";
+
+        public override bool Equals(object obj) => Equals(obj as TreeNode);
+
+        public bool Equals(TreeNode other) => IsSameTree(this, other);
 
         public static bool IsSymmetric(TreeNode root)
         {
