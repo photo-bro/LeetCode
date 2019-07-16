@@ -12,8 +12,9 @@ namespace LeetCode.Tests.Easy
         [InlineData("1,2,2", 2)]
         [InlineData("1", 1)]
         [InlineData("", 0)]
-        [InlineData("1,2,2,3,4,4,3,5,6,7,8,7,6,5", 3)]
-        [InlineData("1,2,2,3,4,4,3,5,6,7,8,7,6,5,1", 4)]
+        [InlineData("1,2,2,3,4,4,3,2", 4)]
+        [InlineData("1,2,2,3,4,4,3,5,6,7,8,8,7,6,5", 4)]
+        [InlineData("1,2,2,3,4,4,3,5,6,7,8,8,7,6,5,1", 5)]
         public void MaxDepth_Tests(string tree, int expected)
         {
             var head = TreeNode.StringToTree(tree);

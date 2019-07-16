@@ -27,31 +27,41 @@ namespace LeetCode.Solutions.Easy
     {
         public static TreeNode SortedArrayToBST(int[] nums)
         {
-            if (nums == null)
+            if (nums == null || nums.Length == 0)
                 return null;
-
-            var head = new TreeNode(nums[0]);
 
             if (nums.Length == 1)
             {
-                return head;
+                return new TreeNode(nums[0]);
             }
 
-            if (nums.Length < 4)
+            if (nums.Length == 2)
             {
-                head.left = new TreeNode(nums[0]);
-                head.right = nums.Length > 2 ? new TreeNode(nums[2]) : null;
-                return head;
+                var max = Math.Max(nums[0], nums[1]);
+                var min = Math.Min(nums[0], nums[1]);
+                return new TreeNode(max) { left = new TreeNode(min) };
+            }
+
+            if (nums.Length == 3)
+            {
+
+                var max = Math.Max(nums[0], nums[2]);
+                var min = Math.Min(nums[0], nums[2]);
+                return new TreeNode(nums[1])
+                {
+                    left = new TreeNode(min),
+                    right = new TreeNode(max)
+                };
             }
 
             var middle = nums.Length / 2;
-            var left = nums.AsSpan().Slice(0, middle);
-            var right = nums.AsSpan().Slice(middle);
+            var left = nums.AsSpan().Slice(0, middle).ToArray();
+            var right = nums.AsSpan().Slice(middle + 1).ToArray();
 
-            head = new TreeNode(nums[middle])
+            var head = new TreeNode(nums[middle])
             {
-                left = TreeNode.ConstructTree(left),
-                right = TreeNode.ConstructTree(right)
+                left = SortedArrayToBST(left),
+                right = SortedArrayToBST(right)
             };
 
             return head;

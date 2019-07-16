@@ -95,7 +95,7 @@ namespace LeetCode.Solutions.Helper
             }
 
             // Null pad values0
-            if (values.Length < Math.Pow(2,n) -1 )
+            if (values.Length < Math.Pow(2, n) - 1)
             {
                 var valueCopy = values.ToArray();
                 Array.Resize(ref valueCopy, (int)Math.Pow(2, n) - 1);
