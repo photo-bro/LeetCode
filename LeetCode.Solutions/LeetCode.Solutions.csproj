@@ -12,7 +12,4 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Helper\" />
-  </ItemGroup>
 </Project>

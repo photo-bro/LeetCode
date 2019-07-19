@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using LeetCode.Solutions.Helper;
+
 namespace LeetCode.Solutions.Medium
 {
     ////// D i v i d e   T w o   I n t e g e r s - M E D I U M //////
@@ -36,47 +39,45 @@ namespace LeetCode.Solutions.Medium
             if (dividend == divisor) return 1;
             if (dividend == int.MinValue)
             {
-                switch (divisor)
-                {
-                    case 1:
-                        return int.MinValue;
-                    case -1:
-                        return int.MaxValue;
-                }
+                if (divisor == 1) return int.MinValue;
+                if (divisor == -1) return int.MaxValue;
             }
-
-            var negative = ((dividend >> 31) ^ (divisor >> 31)) < 0;
 
             var a = Abs(dividend);
             var b = Abs(divisor);
 
             if (b > a) return 0;
 
-            // Long division style
             var q = 0;
-            for (var i = 30; i >= 0; --i)
-            {
-                var r = (long)b << i;
-                if (r >= int.MaxValue || r < 0 || r > a)
-                {
-                    continue;
-                }
 
-                q |= (1 << i);
-                a -= (int)r;
+            if (b == 2)
+            {
+                q = (int)(a >> 1);
+            }
+            else
+            // Long division style
+            {
+                for (var i = 31; i >= 0; --i)
+                {
+                    var r = b << i;
+                    if (r > int.MaxValue || r < 0 || r > a)
+                    {
+                        continue;
+                    }
+
+                    q |= (1 << i);
+                    a -= (int)r;
+                }
             }
 
-            q = negative ? ~q + 1 : q;
+            q = ((dividend >> 31) ^ (divisor >> 31)) < 0 ? ~q + 1 : q;
 
             return q;
         }
 
-        private static int Abs(int a)
+        private static long Abs(int a)
         {
-            if (a == int.MinValue)
-                return int.MaxValue;
-
-            var mask = a >> 31;
+            var mask = (long)a >> 31;
             return (mask + a) ^ mask;
         }
 
