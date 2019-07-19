@@ -34,6 +34,16 @@ namespace LeetCode.Solutions.Medium
             if (divisor == 0) throw new DivideByZeroException();
             if (dividend == 0) return 0;
             if (dividend == divisor) return 1;
+            if (dividend == int.MinValue)
+            {
+                switch (divisor)
+                {
+                    case 1:
+                        return int.MinValue;
+                    case -1:
+                        return int.MaxValue;
+                }
+            }
 
             var negative = ((dividend >> 31) ^ (divisor >> 31)) < 0;
 
@@ -42,30 +52,24 @@ namespace LeetCode.Solutions.Medium
 
             if (b > a) return 0;
 
-            // align MSB of dividend and divisor
-            var alignShift = Msb(a) - Msb(b);
-            b <<= alignShift;
-
-            var q = 1;
-            for (var i = 0; i < 32; ++i)
+            // Long division style
+            var q = 0;
+            for (var i = 30; i >= 0; --i)
             {
-                var t = a - b;
-                if (t >= 0)
+                var r = (long)b << i;
+                if (r >= int.MaxValue || r < 0 || r > a)
                 {
-                    q |= 1;
-                    b = a;
+                    continue;
                 }
-                a <<= 1;
-                q <<= 1;
+
+                q |= (1 << i);
+                a -= (int)r;
             }
 
-            // unalign
-            q >>= alignShift;
+            q = negative ? ~q + 1 : q;
 
-            return negative ? ~q + 1 : q;
+            return q;
         }
-
-        private static int Msb(int a) => (int)(Math.Log(a) / Math.Log(2));
 
         private static int Abs(int a)
         {

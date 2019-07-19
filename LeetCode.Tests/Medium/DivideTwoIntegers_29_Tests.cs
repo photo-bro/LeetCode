@@ -18,6 +18,11 @@ namespace LeetCode.Tests.Medium
         [InlineData(7, -3, -2)]
         [InlineData(7, 3, 2)]
         [InlineData(-2147483648, -1, 2147483647)]
+        [InlineData(-2147483648, 1, -2147483648)]
+        [InlineData(-2147483648, 2, -1073741824)]
+        [InlineData(-2147483648, -3, 715827882)]
+        [InlineData(-1021989372, -82778243, 12)]
+        [InlineData(-2147483648, 122481295, -17)]
         public void Divide_Tests(int dividend, int divisor, int expected)
         {
             var actual = Divide(dividend, divisor);
