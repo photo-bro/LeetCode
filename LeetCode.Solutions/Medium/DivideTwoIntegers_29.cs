@@ -65,7 +65,7 @@ namespace LeetCode.Solutions.Medium
                         continue;
                     }
 
-                    q |= (1 << i);
+                    q |= 1 << i;
                     a -= (int)r;
                 }
             }
@@ -80,22 +80,6 @@ namespace LeetCode.Solutions.Medium
             var mask = (long)a >> 31;
             return (mask + a) ^ mask;
         }
-
-        //  The standard way to do division is by implementing binary long-division.
-        //  This involves subtraction, so as long as you don't discount this as not a
-        //  bit-wise operation, then this is what you should do. (Note that you can of
-        //  course implement subtraction, very tediously, using bitwise logical operations.)
-
-        //  In essence, if you're doing Q = N/D:
-
-        //  Align the most-significant ones of N and D.
-        //  Compute t = (N - D);.
-        //  If(t >= 0), then set the least significant bit of Q to 1, and set N = t.
-        //  Left-shift N by 1.
-        //  Left-shift Q by 1.
-        //  Go to step 2.
-        //  Loop for as many output bits(including fractional) as you require, then apply
-        //  a final shift to undo what you did in Step 1.
 
         public static int DivideIterative(int dividend, int divisor)
         {
