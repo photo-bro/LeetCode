@@ -6,7 +6,7 @@ This repository contains my implementations and solutions to various LeetCode ch
 The solution contains two main projects: Solutions and Tests.   Both follow the same hierarchical folder structure with their respective namespaces also doing so.  
 
 ## Build Status
-https://travis-ci.org/photo-bro/LeetCode.svg?branch=master 
+[![Build Status](https://travis-ci.org/photo-bro/LeetCode.svg?branch=master)](https://travis-ci.org/photo-bro/LeetCode)
   
 ## Solutions  
  - Implementations for the given challenge 
