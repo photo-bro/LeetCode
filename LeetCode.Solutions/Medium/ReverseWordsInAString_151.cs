@@ -34,6 +34,10 @@ namespace LeetCode.Solutions.Medium
     public static class ReverseWordsInAString_151
     {
         public static string ReverseWords(string s) =>
-            string.Join(" ", s.Trim().Split(" ").Where(x => !string.IsNullOrWhiteSpace(x)).Reverse()).Trim();
+            string.Join(" ", s.Trim()
+                .Split(" ")
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Reverse())
+            .Trim();
     }
 }

@@ -13,7 +13,9 @@ namespace LeetCode.Solutions.Helper
         public override int GetHashCode() => HashCode.Combine(val, left, right);
 
         public override string ToString() =>
-            $"Value: '{val}'\t{Environment.NewLine}Left: '{left}'{Environment.NewLine}Right: {right}";
+            $"Value: '{val}'\t{Environment.NewLine}" +
+            $"Left: '{(left == null ? "[null]" : left.ToString())}'{Environment.NewLine}" +
+            $"Right: '{(right == null ? "[null]" : right.ToString())}'";
 
         public override bool Equals(object obj) => Equals(obj as TreeNode);
 
@@ -103,7 +105,7 @@ namespace LeetCode.Solutions.Helper
                 return values[0].HasValue ? new TreeNode(values[0].Value) : null;
             }
 
-            // Null pad values0
+            // Null pad values
             if (values.Length < Math.Pow(2, n) - 1)
             {
                 var valueCopy = values.ToArray();
@@ -136,6 +138,12 @@ namespace LeetCode.Solutions.Helper
 
                 foreach (var parent in parents)
                 {
+                    if (parent == null)
+                    {
+                        offset += 2;
+                        continue;
+                    }
+
                     parent.left = children[offset];
                     parent.right = children[offset + 1];
                     offset += 2;
