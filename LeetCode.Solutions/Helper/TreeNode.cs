@@ -153,4 +153,9 @@ namespace LeetCode.Solutions.Helper
             return nodeLevels[0][0];
         }
     }
+
+    public static class TreeNodeExtensions
+    {
+        public static TreeNode ToBinaryTree(this string s) => TreeNode.StringToTree(s);
+    }
 }
