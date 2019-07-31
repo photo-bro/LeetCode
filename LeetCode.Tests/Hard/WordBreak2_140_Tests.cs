@@ -7,7 +7,7 @@ namespace LeetCode.Tests.Hard
 {
     public class WordBreak2_140_Tests
     {
-        [Theory]
+        [Theory(Skip = "Not implemented yet")]
         [InlineData("catsanddog", "cat,cats,and,sand,dog", "cats and dog,cat sand dog")]
         [InlineData("aaaa", "a,aa,aaa,aaaa", "a a a a,aa a a,a aa a,aaa a,a a aa,aa aa,a aaa,aaaa")]
         public void WordBreak_Tests(string s, string words, string expWords)
