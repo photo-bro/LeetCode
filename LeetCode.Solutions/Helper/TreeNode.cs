@@ -13,9 +13,9 @@ namespace LeetCode.Solutions.Helper
         public override int GetHashCode() => HashCode.Combine(val, left, right);
 
         public override string ToString() =>
-            $"Value: '{val}'\t{Environment.NewLine}" +
-            $"Left: '{(left == null ? "[null]" : left.ToString())}'{Environment.NewLine}" +
-            $"Right: '{(right == null ? "[null]" : right.ToString())}'";
+            $"'{val}'\t{Environment.NewLine}" +
+            $"{(left == null ? "[null]" : left.ToString())}{Environment.NewLine}" +
+            $"{(right == null ? "[null]" : right.ToString())}";
 
         public override bool Equals(object obj) => Equals(obj as TreeNode);
 
